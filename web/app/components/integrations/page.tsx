@@ -107,9 +107,8 @@ export default function IntegrationsPage({
   const {
     canDebugger,
     canInstallPlugin,
-    canManagePlugin,
+    canDeletePlugin,
     canUpdatePlugin,
-    canViewInstalledPlugins,
     handlePermissionChange,
     isPluginCategory,
     permission,
@@ -163,7 +162,7 @@ export default function IntegrationsPage({
       return
     }
 
-    window.open(getMarketplaceUrl(marketplaceUrlPath), '_blank', 'noopener,noreferrer')
+    window.open(getMarketplaceUrl(marketplaceUrlPath, undefined, { source: window.location.origin }), '_blank', 'noopener,noreferrer')
   }
   const handleSelectSection = (nextSection: IntegrationSection) => {
     if (onSectionChange) {
@@ -285,9 +284,8 @@ export default function IntegrationsPage({
                   onProviderSearchTextChange={setProviderSearchText}
                   onSwitchToMarketplace={handleSwitchToMarketplace}
                   canInstallPlugin={canInstallPlugin}
-                  canManagePlugin={canManagePlugin}
+                  canDeletePlugin={canDeletePlugin}
                   canUpdatePlugin={canUpdatePlugin}
-                  canViewInstalledPlugins={canViewInstalledPlugins}
                   pluginCategoryToolbarAction={pluginSettingAction}
                 />
               </div>
@@ -311,9 +309,8 @@ export default function IntegrationsPage({
                   onProviderSearchTextChange={setProviderSearchText}
                   onSwitchToMarketplace={handleSwitchToMarketplace}
                   canInstallPlugin={canInstallPlugin}
-                  canManagePlugin={canManagePlugin}
+                  canDeletePlugin={canDeletePlugin}
                   canUpdatePlugin={canUpdatePlugin}
-                  canViewInstalledPlugins={canViewInstalledPlugins}
                   pluginCategoryToolbarAction={pluginSettingAction}
                 />
               </ScrollArea>

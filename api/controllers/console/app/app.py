@@ -345,6 +345,7 @@ class Site(ResponseModel):
     customize_domain: str | None = None
     copyright: str | None = None
     privacy_policy: str | None = None
+    input_placeholder: str | None = None
     custom_disclaimer: str | None = None
     customize_token_strategy: str | None = None
     prompt_public: bool | None = None
@@ -1094,7 +1095,7 @@ class AppTraceApi(Resource):
     @login_required
     @account_initialization_required
     @edit_permission_required
-    @rbac_permission_required(RBACResourceScope.APP, RBACPermission.APP_MONITOR)
+    @rbac_permission_required(RBACResourceScope.APP, RBACPermission.APP_TRACING_CONFIG)
     @get_app_model
     def post(self, app_model: App):
         # add app trace
